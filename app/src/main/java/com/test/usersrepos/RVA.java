@@ -12,6 +12,7 @@ import java.util.List;
 public class RVA extends RecyclerView.Adapter<MVH>{
 
     private List<Repo> repos;
+    private OnItemClick listener;
 
     public RVA(List<Repo> repo) {
         this.repos = repo;
@@ -23,6 +24,11 @@ public class RVA extends RecyclerView.Adapter<MVH>{
 
     }
 
+    public RVA(List<Repo> repo, OnItemClick listener) {
+        this.repos = repo;
+        this.listener=listener;
+    }
+
     @NonNull
     @Override
     public MVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -32,7 +38,7 @@ public class RVA extends RecyclerView.Adapter<MVH>{
 
     @Override
     public void onBindViewHolder(@NonNull MVH holder, int position) {
-        holder.onBind(repos.get(position));
+        holder.onBind(repos.get(position), listener);
 
     }
 

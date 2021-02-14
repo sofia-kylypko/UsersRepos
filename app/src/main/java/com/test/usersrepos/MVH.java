@@ -16,7 +16,7 @@ public class MVH extends RecyclerView.ViewHolder {
         txtRepo=itemView.findViewById(R.id.txtRepo);
     }
 
-    public void onBind(Repo repo){
+    public void onBind(Repo repo, RVA.OnItemClick listener){
         txtRepo.setText(repo.getName());
     }
 }
