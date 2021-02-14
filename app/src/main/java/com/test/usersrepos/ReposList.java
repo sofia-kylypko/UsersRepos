@@ -64,6 +64,19 @@ public class ReposList extends BaseFragment  {
         txtUserName2.setText(txtUsersName.getText().toString());
     }
 
+    private void add() {
+        adapter.notifyItemInserted(0);
+        list.add(0, new Repo());
+    }
+
+    private List<Repo> generateRecipt() {
+        ArrayList<Repo> tmp = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            tmp.add(new Repo());
+        }
+        return tmp;
+    }
+
     private void getRepo(String name) {
         RestService.create().getRepo(name).enqueue(new Callback<List<Repo>>() {
             @Override
